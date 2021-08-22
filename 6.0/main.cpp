@@ -40,22 +40,7 @@ int mainMenu() {
                     } else {
                         break;
                     }
-                    std::cout << "What is your choice? (1 - 3) ";
-                    std::cin >> choice;
-                    switch (choice) {
-                        case 1:
-                            system("cls");
-                            IntroductionInput();
-                            break;
-                        case 2:
-                            system("cls");
-                            HistoryShow();
-                            break;
-                        case 3:
-                            cal.closeCalculator();
-                            exit(0);
-                        default:;
-                    }
+                    break;
                 }
         }
     }
@@ -65,8 +50,8 @@ int HistoryShow() {
     int choiceHistory;
     std::string readHistoryTo;
     cal.readHistoryandShow();
+    std::cout << "\n1. Clear History\n" << "2. Return to main menu\n\n";
     while (true) {
-        std::cout << "\n1. Clear History\n" << "2. Return to main menu\n\n";
         std::cout << "Your Choice? (1 - 2) ";
         std::cin >> choiceHistory;
         switch (choiceHistory) {
@@ -76,7 +61,6 @@ int HistoryShow() {
             case 2:
                 system("cls");
                 return mainMenu();
-                break;
             default:
                 while (std::cin.fail()) {
                     if (std::cin.fail()) {
@@ -88,17 +72,7 @@ int HistoryShow() {
                     std::cout << "Your Choice? (1 - 2) ";
                     std::cin >> choiceHistory;
                 }
-                switch (choiceHistory) {
-                    case 1:
-                        cal.deleteHistory();
-                        return mainMenu();
-                    case 2:
-                        system("cls");
-                        return mainMenu();
-                        break;
-                    default:;
-                        break;
-                }
+                break;
         }
     }
 }
